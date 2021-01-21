@@ -35,12 +35,13 @@
       <GmapMarker
         :key="index"
         v-for="(m, index) in markers"
-        :position="locationDetected"
+        :position="m.position"
         :clickable="false"
         :draggable="false"
         :icon="{
           url: require('../assets/Map-Marker.png')
         }"
+        @click="center = m.position"
       />
     </GmapMap>
   </div>
@@ -67,10 +68,8 @@ export default {
       ],
       address: "",
       mapsKey: "AIzaSyCqupodOy4ShkVk0SzzoRQDuRaQn3IHIcY",
-      defaultBounds: {
-        northeast: { lat: -5.139501860821229, lng: -80.61527252062896 },
-        southwest: { lat: -5.246669630661016, lng: -80.71834006713638 }
-      }
+      defaultBounds: {},
+      nuevoCentro: {}
     };
   },
   created() {
@@ -79,7 +78,7 @@ export default {
   watch: {},
   methods: {
     async resetCenterChange(evnt) {
-      this.locationDetected = {
+      this.markers[0].position = {
         lat: evnt.lat(),
         lng: evnt.lng()
       };
