@@ -3,8 +3,8 @@
     <h1>{{ msg }}</h1>
     <GmapAutocomplete
       class="form-control"
-      placeholder="Escriba su dirección"
-      id="address"
+      placeholder="Por favor, escriba su dirección"
+      id="direccion"
       ref="address"
       @place_changed="getAddressData"
       v-on:error="handleError"
@@ -14,12 +14,11 @@
         strictBounds: true,
         fields: ['geometry', 'formatted_address']
       }"
-    >
-    </GmapAutocomplete>
+    />
     <div class="m-3"><b>Dirección:</b> {{ address }}</div>
     <GmapMap
       style="width: 100%; height: 300px"
-      :center="locationDetected"
+      :center="locationUser"
       :zoom="18"
       :options="{
         disableDefaultUI: true,
@@ -57,7 +56,7 @@ export default {
   },
   data() {
     return {
-      locationDetected: {},
+      locationUser: {},
       markers: [
         {
           position: {
@@ -68,8 +67,7 @@ export default {
       ],
       address: "",
       mapsKey: "AIzaSyCqupodOy4ShkVk0SzzoRQDuRaQn3IHIcY",
-      defaultBounds: {},
-      nuevoCentro: {}
+      defaultBounds: {}
     };
   },
   created() {
@@ -98,8 +96,10 @@ export default {
     },
     getAddressData(addressData) {
       this.address = addressData.formatted_address;
-      this.locationDetected.lat = addressData.geometry.location.lat();
-      this.locationDetected.lng = addressData.geometry.location.lng();
+      this.markers[0].position.lat = addressData.geometry.location.lat();
+      this.markers[0].position.lng = addressData.geometry.location.lng();
+      this.locationUser.lat = addressData.geometry.location.lat();
+      this.locationUser.lng = addressData.geometry.location.lng();
     },
     handleError(error) {
       alert(error);
@@ -108,7 +108,7 @@ export default {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           position => {
-            this.locationDetected = {
+            this.locationUser = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
