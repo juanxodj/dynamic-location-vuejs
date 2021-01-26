@@ -13,7 +13,11 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "gmap-vue": "^1.5.0",
+    "sib-api-v3-sdk": "^8.2.0",
+    "sib-api-v3-typescript": "^2.1.0",
     "vue": "^2.6.12",
+    "vue-culqi-checkout": "^1.0.0",
+    "vue-mailchimp-subscribe": "^1.1.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

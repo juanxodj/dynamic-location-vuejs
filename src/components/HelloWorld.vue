@@ -10,8 +10,6 @@
       v-on:error="handleError"
       :options="{
         componentRestrictions: { country: 'pe' },
-        bounds: defaultBounds,
-        strictBounds: true,
         fields: ['geometry', 'formatted_address']
       }"
     />

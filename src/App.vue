@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Inicio</router-link> |
-      <router-link to="/about">Nosotros</router-link>
+      <router-link to="/culqi">Culqi</router-link> |
+      <router-link to="/mailchimp">MailChimp</router-link>
     </div>
     <router-view />
   </div>
