@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/">Inicio</router-link> |
       <router-link to="/culqi">Culqi</router-link> |
-      <router-link to="/mailchimp">MailChimp</router-link>
+      <router-link to="/sendinblue">Sendinblue</router-link>
     </div>
     <router-view />
   </div>

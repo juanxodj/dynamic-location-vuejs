@@ -16,9 +16,9 @@ const routes = [
     component: () => import("../views/Culqi.vue")
   },
   {
-    path: "/mailchimp",
-    name: "Mailchimp",
-    component: () => import("../views/Mailchimp.vue")
+    path: "/sendinblue",
+    name: "Sendinblue",
+    component: () => import("../views/Sendinblue.vue")
   }
 ];
 

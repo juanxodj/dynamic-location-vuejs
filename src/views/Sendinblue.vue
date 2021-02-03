@@ -1,40 +1,20 @@
 <template>
   <div class="about">
-    <h1>MailChimp</h1>
+    <h1>Sendinblue</h1>
     <div class="m-3">
       <button type="button" class="btn btn-primary" v-on:click="sendinblue">
-        Sendinblue
+        Save User
       </button>
     </div>
-    <mailchimp-subscribe
-      url="https://xxx.xxx.list-manage.com/subscribe/post-json"
-      user-id="xxx"
-      list-id="bc055928d5"
-      @error="onError"
-      @success="onSuccess"
-    >
-      <template v-slot="{ subscribe, setEmail, error, success, loading }">
-        <form @submit.prevent="subscribe">
-          <input type="email" @input="setEmail($event.target.value)" />
-          <button type="submit">Submit</button>
-          <div v-if="error">{{ error }}</div>
-          <div v-if="success">Yay!</div>
-          <div v-if="loading">Loading…</div>
-        </form>
-      </template>
-    </mailchimp-subscribe>
   </div>
 </template>
 
 <script>
-import MailchimpSubscribe from "vue-mailchimp-subscribe";
 import SibApiV3Sdk from "sib-api-v3-typescript";
 
 export default {
   name: "Mailchimp",
-  components: {
-    MailchimpSubscribe
-  },
+  components: {},
   data() {
     return {
       sendinblueKey:
